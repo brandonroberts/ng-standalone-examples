@@ -1,6 +1,6 @@
-import { Component, importProvidersFrom, INJECTOR_INITIALIZER, NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
+import { CommonModule } from '@angular/common';
+import { Component, INJECTOR_INITIALIZER, NgModule } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 export class Service {
   onInit() {
@@ -30,28 +30,24 @@ export class ServiceModule {
 }
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-lazy-routes',
   template: `
-    <p>test works!</p>
+    <p>lazy routes works!</p>
+
+    Store Feature {{ test$ | async }}
   `,
   standalone: true,
   imports: [
+    CommonModule,
     ServiceModule
   ],
   providers: [
 
   ]
 })
-export class TestComponent {}
+export class LazyRouteComponent {
+  test$ = this.store.select((state: any) => state.test);
 
-export const routes: Routes = [
-  {
-    path: '',
-    providers: [
-      ...importProvidersFrom(
-        StoreModule.forFeature('test', () => true)
-      )            
-    ],
-    component: TestComponent
-  }
-];
+  constructor(private store: Store) {}
+}
+

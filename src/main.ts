@@ -17,8 +17,16 @@ const providers = [
     RouterModule.forRoot(
       [
         {
-          path: '',
-          loadChildren: () => import('./app/test.component').then(m => m.routes),
+          path: 'dynamic',
+          loadComponent: () => import('./app/dynamic-parent.component').then(m => m.DynamicParentComponent)
+        },        
+        {
+          path: 'lazy',
+          loadComponent: () => import('./app/lazy.component').then(m => m.LazyComponent)
+        },
+        {
+          path: 'routes',
+          loadChildren: () => import('./app/lazy.routes').then(m => m.routes),
         },
       ],
       { enableTracing: true }
