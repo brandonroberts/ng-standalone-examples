@@ -17,8 +17,8 @@ const providers = [
     RouterModule.forRoot(
       [
         {
-          path: "",
-          loadComponent: () => import('./app/test.component').then(m => m.TestComponent),
+          path: '',
+          loadChildren: () => import('./app/test.component').then(m => m.routes),
         },
       ],
       { enableTracing: true }

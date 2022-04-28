@@ -1,4 +1,5 @@
 import { Component, importProvidersFrom, INJECTOR_INITIALIZER, NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
 export class Service {
@@ -38,9 +39,19 @@ export class ServiceModule {
     ServiceModule
   ],
   providers: [
-    ...importProvidersFrom(
-      StoreModule.forFeature('test', () => true)
-    )
+
   ]
 })
 export class TestComponent {}
+
+export const routes: Routes = [
+  {
+    path: '',
+    providers: [
+      ...importProvidersFrom(
+        StoreModule.forFeature('test', () => true)
+      )            
+    ],
+    component: TestComponent
+  }
+];
