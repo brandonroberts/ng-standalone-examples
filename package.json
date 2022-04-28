@@ -9,14 +9,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.0.0-next.0",
-    "@angular/common": "^14.0.0-next.0",
-    "@angular/compiler": "^14.0.0-next.0",
-    "@angular/core": "^14.0.0-next.0",
-    "@angular/forms": "^14.0.0-next.0",
-    "@angular/platform-browser": "^14.0.0-next.0",
-    "@angular/platform-browser-dynamic": "^14.0.0-next.0",
-    "@angular/router": "^14.0.0-next.0",
+    "@angular/animations": "github:angular/animations-builds",
+    "@angular/common": "github:angular/common-builds",
+    "@angular/compiler": "github:angular/compiler-builds",
+    "@angular/core": "github:angular/core-builds",
+    "@angular/forms": "github:angular/forms-builds",
+    "@angular/platform-browser": "github:angular/platform-browser-builds",
+    "@angular/platform-browser-dynamic": "github:angular/platform-browser-dynamic-builds",
+    "@angular/router": "github:angular/router-builds",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.0-next.11",
     "@angular/cli": "~14.0.0-next.11",
-    "@angular/compiler-cli": "^14.0.0-next.0",
+    "@angular/compiler-cli": "github:angular/compiler-cli-builds",
     "typescript": "~4.6.2"
   }
 }
