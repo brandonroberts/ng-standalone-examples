@@ -1,4 +1,5 @@
-import { Component, INJECTOR_INITIALIZER, NgModule } from '@angular/core';
+import { Component, importProvidersFrom, INJECTOR_INITIALIZER, NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 
 export class Service {
   onInit() {
@@ -35,6 +36,11 @@ export class ServiceModule {
   standalone: true,
   imports: [
     ServiceModule
+  ],
+  providers: [
+    ...importProvidersFrom(
+      StoreModule.forFeature('test', () => true)
+    )
   ]
 })
 export class TestComponent {}

@@ -17,6 +17,9 @@
     "@angular/platform-browser": "github:angular/platform-browser-builds",
     "@angular/platform-browser-dynamic": "github:angular/platform-browser-dynamic-builds",
     "@angular/router": "github:angular/router-builds",
+    "@ngrx/effects": "^13.1.0",
+    "@ngrx/store": "^13.1.0",
+    "@ngrx/store-devtools": "^13.1.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

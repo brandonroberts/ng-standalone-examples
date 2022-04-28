@@ -1,9 +1,11 @@
 import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app/app.component';
 
-import { TestComponent } from './app/test.component';
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -16,12 +18,15 @@ const providers = [
       [
         {
           path: "",
-          component: TestComponent,
+          loadComponent: () => import('./app/test.component').then(m => m.TestComponent),
         },
       ],
       { enableTracing: true }
-    )
-  )  
+    ),
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot()
+  )
 ];
 
 bootstrapApplication(AppComponent, { providers });
