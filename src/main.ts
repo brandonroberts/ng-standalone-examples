@@ -11,7 +11,7 @@ if (environment.production) {
 }
 
 const providers = [
-  importProvidersFrom(
+  ...importProvidersFrom(
     RouterModule.forRoot(
       [
         {
@@ -22,6 +22,6 @@ const providers = [
       { enableTracing: true }
     )
   )  
-]
+];
 
 bootstrapApplication(AppComponent, { providers });

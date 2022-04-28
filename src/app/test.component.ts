@@ -9,16 +9,16 @@ export class Service {
 @NgModule({
   providers: [
     Service,
-    // {
-    //   provide: INJECTOR_INITIALIZER,
-    //   useFactory(service: Service) {
-    //     return () => {
-    //       service.onInit();
-    //     };
-    //   },
-    //   deps: [Service],
-    //   multi: true
-    // }    
+    {
+      provide: INJECTOR_INITIALIZER,
+      useFactory(service: Service) {
+        return () => {
+          service.onInit();
+        };
+      },
+      deps: [Service],
+      multi: true
+    }
   ],
 })
 export class ServiceModule {
